@@ -11,14 +11,14 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_test);
         LifeCircleEventBus.with("test").observe(this.getClass(), new LifeCircleEventBus.Observer<String>() {
             @Override
             public void onchange(String value) {
                 Toast.makeText(TestActivity.this, value + TestActivity.class, Toast.LENGTH_LONG).show();
             }
         });
-        findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.test_bt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LifeCircleEventBus.with("test").setValue("测试");
